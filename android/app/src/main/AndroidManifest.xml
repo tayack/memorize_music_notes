@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.memorize_music_notes">
+    package="net.jazz_info.memorize_music_notes">
    <application
         android:label="memorize_music_notes"
         android:icon="@mipmap/ic_launcher">

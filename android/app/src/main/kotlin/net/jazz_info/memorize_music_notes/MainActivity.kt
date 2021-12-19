@@ -1,4 +1,4 @@
-package com.example.memorize_music_notes
+package net.jazz_info.memorize_music_notes
 
 import io.flutter.embedding.android.FlutterActivity
 
