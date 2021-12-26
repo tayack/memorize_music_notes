@@ -38,13 +38,6 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: SettingConfig.mainColor,
-      appBar: AppBar(
-        backgroundColor: SettingConfig.secondColor,
-        title: Text(
-          widget.title,
-          style: TextStyle(color: SettingConfig.mainColor),
-        ),
-      ),
       drawer: Drawer(
           child: ListView(children: <Widget>[
         const DrawerHeader(

@@ -12,4 +12,6 @@ class SettingConfig {
   static double commonHeight = 100;
   static double titleFontSize = 30;
   static double largeFontSize = 30;
+  static String pageNameSelectQuestions = "Select Question";
+  static String pageNameQuestion = "Question";
 }

@@ -47,42 +47,32 @@ class _QuestionPage extends State<QuestionPage> {
     return MaterialApp(
         home: Scaffold(
             backgroundColor: SettingConfig.mainColor,
+            appBar: AppBar(
+              backgroundColor: SettingConfig.secondColor,
+              title: Text(
+                SettingConfig.pageNameSelectQuestions,
+                style: TextStyle(color: SettingConfig.mainColor),
+              ),
+            ),
             body: Center(
               child: Column(children: [
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    Center(
-                      child: Card(
-                        child: Container(
-                            width: 100,
-                            height: 100,
-                            child: Align(
-                              alignment: Alignment.center,
-                              child: Text(
-                                'C',
-                                style: TextStyle(
-                                    fontSize: SettingConfig.largeFontSize),
-                              ),
-                            )),
-                      ),
+                    Expanded(
+                      child: Container(
+                          margin: EdgeInsets.all(SettingConfig.commonMargin),
+                          color: SettingConfig.forthColor,
+                          height: SettingConfig.commonHeight,
+                          child: Align(
+                            alignment: Alignment.center,
+                            child: Text(
+                              'C 13',
+                              style: TextStyle(
+                                  fontSize: SettingConfig.largeFontSize),
+                            ),
+                          )),
                     ),
-                    Center(
-                      child: Card(
-                        child: Container(
-                            width: 100,
-                            height: 100,
-                            child: Align(
-                              alignment: Alignment.center,
-                              child: Text(
-                                '13',
-                                style: TextStyle(
-                                  fontSize: SettingConfig.largeFontSize,
-                                ),
-                              ),
-                            )),
-                      ),
-                    )
                   ],
                 ),
                 Row(children: [
@@ -123,24 +113,6 @@ class _QuestionPage extends State<QuestionPage> {
                     'B',
                   ),
                 ]),
-                Row(
-                  children: [
-                    Expanded(
-                      child: Container(
-                        margin: EdgeInsets.all(SettingConfig.commonMargin),
-                        height: SettingConfig.commonHeight,
-                        child: ElevatedButton(
-                          onPressed: () => {},
-                          child: Text('clear'),
-                          style: ElevatedButton.styleFrom(
-                            primary: SettingConfig.mainColor,
-                            onPrimary: SettingConfig.secondColor,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
               ]),
             ),
             bottomNavigationBar: Container(

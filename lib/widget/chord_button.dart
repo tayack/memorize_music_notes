@@ -22,7 +22,9 @@ class _ChordButtonState extends State<ChordButton> {
                 onPrimary: SettingConfig.secondColor),
             child: Text(
               widget._chord,
-              style: TextStyle(color: SettingConfig.mainColor),
+              style: TextStyle(
+                  color: SettingConfig.mainColor,
+                  fontSize: SettingConfig.largeFontSize),
             ),
           )),
     );
