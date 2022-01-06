@@ -10,6 +10,7 @@ class SettingConfig {
   static Color? thirdColor = Colors.grey;
   static Color? forthColor = Colors.white;
   static double commonHeight = 100;
+  static double titleButtonHeight = 30;
   static double titleFontSize = 30;
   static double largeFontSize = 30;
   static String pageNameSelectQuestions = "Select Question";
