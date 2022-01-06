@@ -36,115 +36,133 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _selectItem = 1;
+
+  final _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: SettingConfig.mainColor,
-      drawer: Drawer(
-          child: ListView(children: <Widget>[
-        const DrawerHeader(
-          child: Text(
-            'My App',
-            style: TextStyle(
-              fontSize: 24,
-              color: Colors.white,
+    return Form(
+      key: _formKey,
+      child: Scaffold(
+        backgroundColor: SettingConfig.mainColor,
+        drawer: Drawer(
+            child: ListView(children: <Widget>[
+          const DrawerHeader(
+            child: Text(
+              'My App',
+              style: TextStyle(
+                fontSize: 24,
+                color: Colors.white,
+              ),
+            ),
+            decoration: BoxDecoration(
+              color: Colors.blue,
             ),
           ),
-          decoration: BoxDecoration(
-            color: Colors.blue,
+          ListTile(
+            title: Text('quiz'),
+            onTap: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => QuestionPage()));
+            },
           ),
-        ),
-        ListTile(
-          title: Text('quiz'),
-          onTap: () {
-            Navigator.push(context,
-                MaterialPageRoute(builder: (context) => QuestionPage()));
-          },
-        ),
-      ])),
-      body: Center(
-        // ここを追加
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            TitleText('Memorize'),
-            TitleText('Music'),
-            TitleText('Notes'),
-            SizedBox(
-              height: 20,
-            ),
-            Center(
-              child: Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  DropdownButton(
-                    style: TextStyle(
-                      color: SettingConfig.forthColor,
-                    ),
-                    alignment: Alignment.center,
-                    underline: Container(
-                      height: 2,
-                      color: Colors.white,
-                    ),
-                    dropdownColor: SettingConfig.mainColor,
-                    value: _selectItem,
-                    items: [
-                      DropdownMenuItem(child: Text('Select degree'), value: 1),
-                      DropdownMenuItem(child: Text('m3'), value: 2),
-                      DropdownMenuItem(child: Text('3'), value: 3),
-                      DropdownMenuItem(child: Text('5'), value: 4),
-                      DropdownMenuItem(child: Text('♭7'), value: 5),
-                      DropdownMenuItem(child: Text('7'), value: 6),
-                      DropdownMenuItem(child: Text('♭9'), value: 7),
-                      DropdownMenuItem(child: Text('9'), value: 8),
-                      DropdownMenuItem(child: Text('#9'), value: 9),
-                      DropdownMenuItem(child: Text('11'), value: 10),
-                      DropdownMenuItem(child: Text('#11'), value: 11),
-                      DropdownMenuItem(child: Text('♭13'), value: 12),
-                      DropdownMenuItem(child: Text('13'), value: 13),
-                    ],
-                    onChanged: (value) => {
-                      setState(() {
-                        _selectItem = int.parse(value.toString());
-                      }),
-                    },
-                  ),
-                  SizedBox(
-                    width: 20,
-                  ),
-                  Container(
-                    height: SettingConfig.titleButtonHeight,
-                    child: ElevatedButton(
-                      child: const Text('Start'),
-                      style: ElevatedButton.styleFrom(
-                        textStyle: TextStyle(fontWeight: FontWeight.bold),
-                        primary: SettingConfig.secondColor,
-                        onPrimary: SettingConfig.mainColor,
+        ])),
+        body: Center(
+          // ここを追加
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              TitleText('Memorize'),
+              TitleText('Music'),
+              TitleText('Notes'),
+              SizedBox(
+                height: 20,
+              ),
+              Center(
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    SizedBox(
+                      width: 100,
+                      height: SettingConfig.titleButtonHeight,
+                      child: DropdownButtonFormField(
+                        style: TextStyle(
+                          color: SettingConfig.forthColor,
+                        ),
+                        decoration: InputDecoration(
+                            labelText: 'degree',
+                            labelStyle:
+                                TextStyle(color: SettingConfig.secondColor),
+                            enabledBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                color: Colors.white,
+                              ),
+                            )),
+                        alignment: Alignment.center,
+                        dropdownColor: SettingConfig.mainColor,
+                        value: _selectItem,
+                        items: [
+                          DropdownMenuItem(child: Text('m3'), value: 1),
+                          DropdownMenuItem(child: Text('3'), value: 2),
+                          DropdownMenuItem(child: Text('5'), value: 3),
+                          DropdownMenuItem(child: Text('♭7'), value: 4),
+                          DropdownMenuItem(child: Text('7'), value: 5),
+                          DropdownMenuItem(child: Text('♭9'), value: 6),
+                          DropdownMenuItem(child: Text('9'), value: 7),
+                          DropdownMenuItem(child: Text('#9'), value: 8),
+                          DropdownMenuItem(child: Text('11'), value: 9),
+                          DropdownMenuItem(child: Text('#11'), value: 10),
+                          DropdownMenuItem(child: Text('♭13'), value: 11),
+                          DropdownMenuItem(child: Text('13'), value: 12),
+                        ],
+                        onChanged: (value) => {
+                          setState(() {
+                            _selectItem = int.parse(value.toString());
+                          }),
+                        },
                       ),
-                      onPressed: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => QuestionPage()));
-                      },
                     ),
+                    SizedBox(
+                      width: 20,
+                    ),
+                    Container(
+                      height: SettingConfig.titleButtonHeight,
+                      width: 100,
+                      child: ElevatedButton(
+                        child: const Text('Start'),
+                        style: ElevatedButton.styleFrom(
+                          textStyle: TextStyle(fontWeight: FontWeight.bold),
+                          primary: SettingConfig.secondColor,
+                          onPrimary: SettingConfig.mainColor,
+                        ),
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => QuestionPage()));
+                        },
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              Container(
+                height: SettingConfig.titleButtonHeight,
+                width: 220,
+                child: ElevatedButton(
+                  child: const Text('Score'),
+                  style: ElevatedButton.styleFrom(
+                    primary: SettingConfig.secondColor,
+                    onPrimary: SettingConfig.mainColor,
+                    textStyle: TextStyle(fontWeight: FontWeight.bold),
                   ),
-                ],
+                  onPressed: () {},
+                ),
               ),
-            ),
-            SizedBox(
-              height: 20,
-            ),
-            ElevatedButton(
-              child: const Text('Score'),
-              style: ElevatedButton.styleFrom(
-                primary: SettingConfig.secondColor,
-                onPrimary: SettingConfig.mainColor,
-                textStyle: TextStyle(fontWeight: FontWeight.bold),
-              ),
-              onPressed: () {},
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
