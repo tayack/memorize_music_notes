@@ -48,73 +48,77 @@ class _QuestionPage extends State<QuestionPage> {
         home: Scaffold(
             backgroundColor: SettingConfig.mainColor,
             appBar: AppBar(
-              backgroundColor: SettingConfig.secondColor,
-              title: Text(
-                SettingConfig.pageNameSelectQuestions,
-                style: TextStyle(color: SettingConfig.mainColor),
+              leading: new IconButton(
+                icon:
+                    new Icon(Icons.arrow_back, color: SettingConfig.mainColor),
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
               ),
+              backgroundColor: SettingConfig.secondColor,
             ),
-            body: Center(
-              child: Column(children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Expanded(
-                      child: Container(
-                          margin: EdgeInsets.all(SettingConfig.commonMargin),
-                          color: SettingConfig.forthColor,
-                          height: SettingConfig.commonHeight,
-                          child: Align(
-                            alignment: Alignment.center,
-                            child: Text(
-                              'C 13',
-                              style: TextStyle(
-                                  fontSize: SettingConfig.largeFontSize),
-                            ),
-                          )),
+            body: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Expanded(
+                        child: Container(
+                            margin: EdgeInsets.all(SettingConfig.commonMargin),
+                            color: SettingConfig.forthColor,
+                            height: SettingConfig.commonHeight,
+                            child: Align(
+                              alignment: Alignment.center,
+                              child: Text(
+                                'C 13',
+                                style: TextStyle(
+                                    fontSize: SettingConfig.largeFontSize),
+                              ),
+                            )),
+                      ),
+                    ],
+                  ),
+                  Row(children: [
+                    ChordButton('C'),
+                    ChordButton(
+                      'C#',
                     ),
-                  ],
-                ),
-                Row(children: [
-                  ChordButton('C'),
-                  ChordButton(
-                    'C#',
-                  ),
-                  ChordButton('D'),
-                  ChordButton(
-                    'E♭',
-                  )
+                    ChordButton('D'),
+                    ChordButton(
+                      'E♭',
+                    )
+                  ]),
+                  Row(children: [
+                    ChordButton(
+                      'E',
+                    ),
+                    ChordButton(
+                      'F',
+                    ),
+                    ChordButton(
+                      'F#',
+                    ),
+                    ChordButton(
+                      'G',
+                    )
+                  ]),
+                  Row(children: [
+                    ChordButton(
+                      'G#',
+                    ),
+                    ChordButton(
+                      'A',
+                    ),
+                    ChordButton(
+                      'B♭',
+                    ),
+                    ChordButton(
+                      'B',
+                    ),
+                  ]),
                 ]),
-                Row(children: [
-                  ChordButton(
-                    'E',
-                  ),
-                  ChordButton(
-                    'F',
-                  ),
-                  ChordButton(
-                    'F#',
-                  ),
-                  ChordButton(
-                    'G',
-                  )
-                ]),
-                Row(children: [
-                  ChordButton(
-                    'G#',
-                  ),
-                  ChordButton(
-                    'A',
-                  ),
-                  ChordButton(
-                    'B♭',
-                  ),
-                  ChordButton(
-                    'B',
-                  ),
-                ]),
-              ]),
-            ),
             bottomNavigationBar: Container(
               child: adWidget,
               width: myBanner.size.width.toDouble(),

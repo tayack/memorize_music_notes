@@ -67,7 +67,6 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
         ])),
         body: Center(
-          // ここを追加
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [

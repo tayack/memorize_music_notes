@@ -9,7 +9,7 @@ class SettingConfig {
   static Color? secondColor = Colors.orange[200];
   static Color? thirdColor = Colors.grey;
   static Color? forthColor = Colors.white;
-  static double commonHeight = 100;
+  static double commonHeight = 75;
   static double titleButtonHeight = 50;
   static double titleFontSize = 30;
   static double largeFontSize = 30;
